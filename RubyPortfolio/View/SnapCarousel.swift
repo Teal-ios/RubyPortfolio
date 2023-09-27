@@ -9,27 +9,25 @@ import SwiftUI
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
+    var works: [Card]
+    
+    init(works: [Card]) {
+        self.works = works
+    }
     
     var body: some View {
         let spacing: CGFloat = 16
         let widthOfHiddenCards: CGFloat = 32
         let cardHeight: CGFloat = 279
         
-        let items = [
-            Card(id: 0, name: "Hey"),
-            Card(id: 1, name: "Ho"),
-            Card(id: 2, name: "Lets"),
-            Card(id: 3, name: "Go")
-        ]
-        
         return Canvas {
             /// TODO: find a way to avoid passing same arguments to Carousel and Item
             Carousel(
-                numberOfItems: CGFloat(items.count),
+                numberOfItems: CGFloat(works.count),
                 spacing: spacing,
                 widthOfHiddenCards: widthOfHiddenCards
             ) {
-                ForEach(items, id: \.self.id) { item in
+                ForEach(works, id: \.self.id) { item in
                     Item(
                         _id: Int(item.id),
                         spacing: spacing,
@@ -37,7 +35,8 @@ struct SnapCarousel: View {
                         cardHeight: cardHeight
                     ) {
                         VStack {
-                            Text("\(item.name)")
+                            Image(item.image)
+                                .resizable()
                         }
                     }
                     .foregroundColor(Color.white)
@@ -54,7 +53,9 @@ struct SnapCarousel: View {
 
 struct Card: Decodable, Hashable, Identifiable {
     var id: Int
-    var name: String = ""
+    var title: String = ""
+    var subTitle: String = ""
+    var image: String = ""
 }
 
 public class UIStateModel: ObservableObject {
@@ -173,6 +174,17 @@ struct Item<Content: View>: View {
 
 struct SnapCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        SnapCarousel()
+        let items = [
+            Card(id: 0, title: "작품1", subTitle: "이것도테스트", image: "main1"),
+            Card(id: 1, title: "작품2", subTitle: "이것도테스트", image: "main2"),
+            Card(id: 2, title: "작품3", subTitle: "이것도테스트", image: "main3"),
+            Card(id: 3, title: "작품4", subTitle: "이것도테스트", image: "main4"),
+            Card(id: 4, title: "작품5", subTitle: "이것도테스트", image: "main5"),
+            Card(id: 5, title: "작품6", subTitle: "이것도테스트", image: "main6"),
+            Card(id: 6, title: "작품7", subTitle: "이것도테스트", image: "main7"),
+            Card(id: 7, title: "작품8", subTitle: "이것도테스트", image: "main8")
+
+        ]
+        SnapCarousel(works: items)
     }
 }
