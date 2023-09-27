@@ -14,13 +14,16 @@ struct Home: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            Text("Active card is \(viewModel.activeCard)")
+            SnapCarousel(works: viewModel.works)
+                .environmentObject(viewModel.stateModel)
                 .font(.system(size: 22))
             
-            SnapCarousel()
-                .environmentObject(viewModel.stateModel)
+            Text("\(viewModel.works[viewModel.activeCard].title)")
+                .font(.system(size: 22))
         } // VStack
         .frame(height: 350, alignment: .center)
+        .padding()
+        Text("\(viewModel.works[viewModel.activeCard].subTitle)")
     }
 }
 
