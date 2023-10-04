@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
-    var works: [Card]
+    var works: [Work]
     
-    init(works: [Card]) {
+    init(works: [Work]) {
         self.works = works
     }
     
@@ -51,14 +51,7 @@ struct SnapCarousel: View {
     }
 }
 
-struct Card: Decodable, Hashable, Identifiable {
-    var id: Int
-    var title: String = ""
-    var subTitle: String = ""
-    var image: String = ""
-}
-
-public class UIStateModel: ObservableObject {
+class UIStateModel: ObservableObject {
     @Published var activeCard: Int = 0
     @Published var screenDrag: Float = 0.0
 }
@@ -141,7 +134,7 @@ struct Canvas<Content : View> : View {
     var body: some View {
         content
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            .background(Color.white.edgesIgnoringSafeArea(.all))
+            .background(Color.clear.edgesIgnoringSafeArea(.all))
     }
 }
 
@@ -175,14 +168,14 @@ struct Item<Content: View>: View {
 struct SnapCarousel_Previews: PreviewProvider {
     static var previews: some View {
         let items = [
-            Card(id: 0, title: "작품1", subTitle: "이것도테스트", image: "main1"),
-            Card(id: 1, title: "작품2", subTitle: "이것도테스트", image: "main2"),
-            Card(id: 2, title: "작품3", subTitle: "이것도테스트", image: "main3"),
-            Card(id: 3, title: "작품4", subTitle: "이것도테스트", image: "main4"),
-            Card(id: 4, title: "작품5", subTitle: "이것도테스트", image: "main5"),
-            Card(id: 5, title: "작품6", subTitle: "이것도테스트", image: "main6"),
-            Card(id: 6, title: "작품7", subTitle: "이것도테스트", image: "main7"),
-            Card(id: 7, title: "작품8", subTitle: "이것도테스트", image: "main8")
+            Work(id: 0, title: "작품1", subTitle: "이것도테스트", image: "main1"),
+            Work(id: 1, title: "작품2", subTitle: "이것도테스트", image: "main2"),
+            Work(id: 2, title: "작품3", subTitle: "이것도테스트", image: "main3"),
+            Work(id: 3, title: "작품4", subTitle: "이것도테스트", image: "main4"),
+            Work(id: 4, title: "작품5", subTitle: "이것도테스트", image: "main5"),
+            Work(id: 5, title: "작품6", subTitle: "이것도테스트", image: "main6"),
+            Work(id: 6, title: "작품7", subTitle: "이것도테스트", image: "main7"),
+            Work(id: 7, title: "작품8", subTitle: "이것도테스트", image: "main8")
 
         ]
         SnapCarousel(works: items)

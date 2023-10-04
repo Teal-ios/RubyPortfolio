@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB435012AC3E1B000EBF3DA /* Work.swift */; };
+		2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB435092AC3E41400EBF3DA /* Color + Extension.swift */; };
 		2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */; };
 		2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E82AC3C77D00600AF7 /* ContentView.swift */; };
 		2FDD41EB2AC3C77E00600AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDD41EA2AC3C77E00600AF7 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FB435012AC3E1B000EBF3DA /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		2FB435092AC3E41400EBF3DA /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		2FDD41E32AC3C77D00600AF7 /* RubyPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPortfolioApp.swift; sourceTree = "<group>"; };
 		2FDD41E82AC3C77D00600AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FB434FC2AC3E18500EBF3DA /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				2FDD41F42AC3C83A00600AF7 /* Home */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		2FB434FD2AC3E18800EBF3DA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2FB434FE2AC3E18B00EBF3DA /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2FB435002AC3E1A100EBF3DA /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2FB434FF2AC3E18D00EBF3DA /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2FB435082AC3E3F300EBF3DA /* Extension */,
+				2FB435032AC3E2E000EBF3DA /* Custom */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2FB435002AC3E1A100EBF3DA /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2FB435012AC3E1B000EBF3DA /* Work.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		2FB435032AC3E2E000EBF3DA /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				2FDD41F82AC3C89100600AF7 /* SnapCarousel.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		2FB435042AC3E30C00EBF3DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FDD41F62AC3C85300600AF7 /* Home.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FB435052AC3E30E00EBF3DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FDD41FA2AC3C99000600AF7 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FB435062AC3E32900EBF3DA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2FB434FC2AC3E18500EBF3DA /* Present */,
+				2FB434FD2AC3E18800EBF3DA /* Data */,
+				2FB434FE2AC3E18B00EBF3DA /* Domain */,
+				2FB434FF2AC3E18D00EBF3DA /* Utility */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2FB435072AC3E32C00EBF3DA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2FB435082AC3E3F300EBF3DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2FB435092AC3E41400EBF3DA /* Color + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		2FDD41DA2AC3C77D00600AF7 = {
 			isa = PBXGroup;
 			children = (
@@ -57,8 +151,8 @@
 		2FDD41E52AC3C77D00600AF7 /* RubyPortfolio */ = {
 			isa = PBXGroup;
 			children = (
-				2FDD41F52AC3C84400600AF7 /* Model */,
-				2FDD41F42AC3C83A00600AF7 /* View */,
+				2FB435072AC3E32C00EBF3DA /* Resource */,
+				2FB435062AC3E32900EBF3DA /* Source */,
 				2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */,
 				2FDD41E82AC3C77D00600AF7 /* ContentView.swift */,
 				2FDD41EA2AC3C77E00600AF7 /* Assets.xcassets */,
@@ -75,21 +169,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2FDD41F42AC3C83A00600AF7 /* View */ = {
+		2FDD41F42AC3C83A00600AF7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2FDD41F62AC3C85300600AF7 /* Home.swift */,
-				2FDD41F82AC3C89100600AF7 /* SnapCarousel.swift */,
-				2FDD41FA2AC3C99000600AF7 /* HomeViewModel.swift */,
+				2FB435052AC3E30E00EBF3DA /* ViewModel */,
+				2FB435042AC3E30C00EBF3DA /* View */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2FDD41F52AC3C84400600AF7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +249,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */,
+				2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */,
 				2FDD41F92AC3C89100600AF7 /* SnapCarousel.swift in Sources */,
+				2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */,
 				2FDD41F72AC3C85300600AF7 /* Home.swift in Sources */,
 				2FDD41FB2AC3C99000600AF7 /* HomeViewModel.swift in Sources */,
 				2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */,
