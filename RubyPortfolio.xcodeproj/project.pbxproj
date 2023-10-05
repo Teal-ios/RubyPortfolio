@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB435012AC3E1B000EBF3DA /* Work.swift */; };
 		2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB435092AC3E41400EBF3DA /* Color + Extension.swift */; };
+		2FD141C82ACE49D90024CD72 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141C72ACE49D90024CD72 /* RouterProtocol.swift */; };
+		2FD141CA2ACE49EA0024CD72 /* RouterScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141C92ACE49EA0024CD72 /* RouterScreenProtocol.swift */; };
+		2FD141CD2ACE4A200024CD72 /* RouterAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141CC2ACE4A200024CD72 /* RouterAlertModifier.swift */; };
+		2FD141CF2ACE4A310024CD72 /* RouterCloseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141CE2ACE4A310024CD72 /* RouterCloseModifier.swift */; };
+		2FD141D12ACE4A400024CD72 /* RouterNavigationStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D02ACE4A400024CD72 /* RouterNavigationStackModifier.swift */; };
+		2FD141D32ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D22ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift */; };
+		2FD141D52ACE4A720024CD72 /* RouterSheetScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D42ACE4A720024CD72 /* RouterSheetScreenProtocol.swift */; };
 		2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */; };
 		2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E82AC3C77D00600AF7 /* ContentView.swift */; };
 		2FDD41EB2AC3C77E00600AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDD41EA2AC3C77E00600AF7 /* Assets.xcassets */; };
@@ -21,6 +28,13 @@
 /* Begin PBXFileReference section */
 		2FB435012AC3E1B000EBF3DA /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		2FB435092AC3E41400EBF3DA /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		2FD141C72ACE49D90024CD72 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		2FD141C92ACE49EA0024CD72 /* RouterScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterScreenProtocol.swift; sourceTree = "<group>"; };
+		2FD141CC2ACE4A200024CD72 /* RouterAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterAlertModifier.swift; sourceTree = "<group>"; };
+		2FD141CE2ACE4A310024CD72 /* RouterCloseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterCloseModifier.swift; sourceTree = "<group>"; };
+		2FD141D02ACE4A400024CD72 /* RouterNavigationStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterNavigationStackModifier.swift; sourceTree = "<group>"; };
+		2FD141D22ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterNavigationViewModifier.swift; sourceTree = "<group>"; };
+		2FD141D42ACE4A720024CD72 /* RouterSheetScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSheetScreenProtocol.swift; sourceTree = "<group>"; };
 		2FDD41E32AC3C77D00600AF7 /* RubyPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPortfolioApp.swift; sourceTree = "<group>"; };
 		2FDD41E82AC3C77D00600AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +82,7 @@
 		2FB434FF2AC3E18D00EBF3DA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2FD141C62ACE49CB0024CD72 /* Router */,
 				2FB435082AC3E3F300EBF3DA /* Extension */,
 				2FB435032AC3E2E000EBF3DA /* Custom */,
 			);
@@ -130,6 +145,28 @@
 				2FB435092AC3E41400EBF3DA /* Color + Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		2FD141C62ACE49CB0024CD72 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141C72ACE49D90024CD72 /* RouterProtocol.swift */,
+				2FD141C92ACE49EA0024CD72 /* RouterScreenProtocol.swift */,
+				2FD141CB2ACE4A150024CD72 /* Modifier */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2FD141CB2ACE4A150024CD72 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141CC2ACE4A200024CD72 /* RouterAlertModifier.swift */,
+				2FD141CE2ACE4A310024CD72 /* RouterCloseModifier.swift */,
+				2FD141D02ACE4A400024CD72 /* RouterNavigationStackModifier.swift */,
+				2FD141D22ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift */,
+				2FD141D42ACE4A720024CD72 /* RouterSheetScreenProtocol.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 		2FDD41DA2AC3C77D00600AF7 = {
@@ -248,10 +285,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD141D32ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift in Sources */,
+				2FD141D12ACE4A400024CD72 /* RouterNavigationStackModifier.swift in Sources */,
+				2FD141D52ACE4A720024CD72 /* RouterSheetScreenProtocol.swift in Sources */,
 				2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */,
 				2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */,
+				2FD141CF2ACE4A310024CD72 /* RouterCloseModifier.swift in Sources */,
+				2FD141CA2ACE49EA0024CD72 /* RouterScreenProtocol.swift in Sources */,
+				2FD141C82ACE49D90024CD72 /* RouterProtocol.swift in Sources */,
 				2FDD41F92AC3C89100600AF7 /* SnapCarousel.swift in Sources */,
 				2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */,
+				2FD141CD2ACE4A200024CD72 /* RouterAlertModifier.swift in Sources */,
 				2FDD41F72AC3C85300600AF7 /* Home.swift in Sources */,
 				2FDD41FB2AC3C99000600AF7 /* HomeViewModel.swift in Sources */,
 				2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */,
