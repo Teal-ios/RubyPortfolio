@@ -16,6 +16,11 @@
 		2FD141D12ACE4A400024CD72 /* RouterNavigationStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D02ACE4A400024CD72 /* RouterNavigationStackModifier.swift */; };
 		2FD141D32ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D22ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift */; };
 		2FD141D52ACE4A720024CD72 /* RouterSheetScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D42ACE4A720024CD72 /* RouterSheetScreenProtocol.swift */; };
+		2FD141D82ACE4CA90024CD72 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141D72ACE4CA90024CD72 /* HomeRouter.swift */; };
+		2FD141DE2ACE5CAB0024CD72 /* WorkDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141DD2ACE5CAB0024CD72 /* WorkDetailRouter.swift */; };
+		2FD141E02ACE5CED0024CD72 /* WorkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141DF2ACE5CED0024CD72 /* WorkDetailViewModel.swift */; };
+		2FD141E22ACE5CFB0024CD72 /* WorkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141E12ACE5CFB0024CD72 /* WorkDetail.swift */; };
+		2FD141E52ACE896F0024CD72 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141E42ACE896F0024CD72 /* ViewModelable.swift */; };
 		2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */; };
 		2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E82AC3C77D00600AF7 /* ContentView.swift */; };
 		2FDD41EB2AC3C77E00600AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDD41EA2AC3C77E00600AF7 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 		2FD141D02ACE4A400024CD72 /* RouterNavigationStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterNavigationStackModifier.swift; sourceTree = "<group>"; };
 		2FD141D22ACE4A5A0024CD72 /* RouterNavigationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterNavigationViewModifier.swift; sourceTree = "<group>"; };
 		2FD141D42ACE4A720024CD72 /* RouterSheetScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSheetScreenProtocol.swift; sourceTree = "<group>"; };
+		2FD141D72ACE4CA90024CD72 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		2FD141DD2ACE5CAB0024CD72 /* WorkDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailRouter.swift; sourceTree = "<group>"; };
+		2FD141DF2ACE5CED0024CD72 /* WorkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailViewModel.swift; sourceTree = "<group>"; };
+		2FD141E12ACE5CFB0024CD72 /* WorkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetail.swift; sourceTree = "<group>"; };
+		2FD141E42ACE896F0024CD72 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		2FDD41E32AC3C77D00600AF7 /* RubyPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPortfolioApp.swift; sourceTree = "<group>"; };
 		2FDD41E82AC3C77D00600AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +69,7 @@
 		2FB434FC2AC3E18500EBF3DA /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				2FD141D92ACE5BA10024CD72 /* WorkDetail */,
 				2FDD41F42AC3C83A00600AF7 /* Home */,
 			);
 			path = Present;
@@ -82,6 +93,7 @@
 		2FB434FF2AC3E18D00EBF3DA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2FD141E32ACE89670024CD72 /* Protocol */,
 				2FD141C62ACE49CB0024CD72 /* Router */,
 				2FB435082AC3E3F300EBF3DA /* Extension */,
 				2FB435032AC3E2E000EBF3DA /* Custom */,
@@ -169,6 +181,56 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
+		2FD141D62ACE4C9F0024CD72 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141D72ACE4CA90024CD72 /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2FD141D92ACE5BA10024CD72 /* WorkDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141DC2ACE5BAF0024CD72 /* Router */,
+				2FD141DA2ACE5BA80024CD72 /* ViewModel */,
+				2FD141DB2ACE5BAB0024CD72 /* View */,
+			);
+			path = WorkDetail;
+			sourceTree = "<group>";
+		};
+		2FD141DA2ACE5BA80024CD72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141DF2ACE5CED0024CD72 /* WorkDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FD141DB2ACE5BAB0024CD72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141E12ACE5CFB0024CD72 /* WorkDetail.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FD141DC2ACE5BAF0024CD72 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141DD2ACE5CAB0024CD72 /* WorkDetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2FD141E32ACE89670024CD72 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2FD141E42ACE896F0024CD72 /* ViewModelable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		2FDD41DA2AC3C77D00600AF7 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +271,7 @@
 		2FDD41F42AC3C83A00600AF7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2FD141D62ACE4C9F0024CD72 /* Router */,
 				2FB435052AC3E30E00EBF3DA /* ViewModel */,
 				2FB435042AC3E30C00EBF3DA /* View */,
 			);
@@ -289,10 +352,15 @@
 				2FD141D12ACE4A400024CD72 /* RouterNavigationStackModifier.swift in Sources */,
 				2FD141D52ACE4A720024CD72 /* RouterSheetScreenProtocol.swift in Sources */,
 				2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */,
+				2FD141D82ACE4CA90024CD72 /* HomeRouter.swift in Sources */,
+				2FD141E52ACE896F0024CD72 /* ViewModelable.swift in Sources */,
+				2FD141E22ACE5CFB0024CD72 /* WorkDetail.swift in Sources */,
 				2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */,
 				2FD141CF2ACE4A310024CD72 /* RouterCloseModifier.swift in Sources */,
 				2FD141CA2ACE49EA0024CD72 /* RouterScreenProtocol.swift in Sources */,
+				2FD141DE2ACE5CAB0024CD72 /* WorkDetailRouter.swift in Sources */,
 				2FD141C82ACE49D90024CD72 /* RouterProtocol.swift in Sources */,
+				2FD141E02ACE5CED0024CD72 /* WorkDetailViewModel.swift in Sources */,
 				2FDD41F92AC3C89100600AF7 /* SnapCarousel.swift in Sources */,
 				2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */,
 				2FD141CD2ACE4A200024CD72 /* RouterAlertModifier.swift in Sources */,
@@ -435,6 +503,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +533,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
