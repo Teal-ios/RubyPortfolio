@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     
     @ObservedObject var viewModel: HomeViewModel
+    @State var onToolBarTrigger: Bool = false
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -18,7 +19,30 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            contentView
+            switch onToolBarTrigger {
+            case false:
+                Button {
+                    onToolBarTrigger.toggle()
+                } label: {
+                    contentView
+                }
+                
+            case true:
+                Button {
+                    onToolBarTrigger.toggle()
+                } label: {
+                    contentView
+                }
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        DarkGrayRoundButton(buttonTitle: "작품 소개")
+                        
+                        Spacer()
+
+                        DarkGrayRoundButton(buttonTitle: "작가 소개")
+                    }
+                }
+            }
         }
     }
     
@@ -26,12 +50,13 @@ struct Home: View {
     private var contentView: some View {
         switch viewModel.state {
         case let .works(works):
+            
             ZStack {
                 Image(works[viewModel.activeCard].image)
-                    
+                
                 HStack {
                     VStack(spacing: 8) {
-
+                        
                         getWorkCellButtonTap(works: works)
                     } // VStack
                     .frame(height: 350, alignment: .top)
@@ -39,12 +64,20 @@ struct Home: View {
             }
         }
     }
+    
+    @ViewBuilder
+    private var titleText: some View {
+        switch viewModel.state {
+        case let .works(works):
+            Text(works[viewModel.activeCard].title)
+        }
+    }
 }
 
 extension Home {
     @ViewBuilder
     private func getWorkCellButtonTap(works: [Work]) -> some View {
-
+        
         NavigationLink(destination: WorkDetail(viewModel: WorkDetailViewModel(externalData: WorkDetailData.ExternalData(work: works[viewModel.activeCard])))) {
             SnapCarousel(works: works)
                 .environmentObject(viewModel.stateModel)

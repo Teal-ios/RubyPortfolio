@@ -19,7 +19,8 @@ struct RubyPortfolioApp: App {
                 Work(id: 4, title: "작품5", subTitle: "뉴작품", image: "main5", fontColor: .white),
                 Work(id: 5, title: "작품6", subTitle: "대단한작품", image: "main6", fontColor: .white),
                 Work(id: 6, title: "작품7", subTitle: "완벽한작품", image: "main7", fontColor: .white),
-                Work(id: 7, title: "작품8", subTitle: "굳작품", image: "main8", fontColor: .black)
+                Work(id: 7, title: "작품8", subTitle: "굳작품", image: "main8", fontColor: .black),
+                Work(id: 8, title: "작품9", subTitle: "굳걷작품", image: "main9", fontColor: .black)
             ]))
         }
     }
