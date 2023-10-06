@@ -6,12 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
-final class HomeStore: ViewModelable {
+final class HomeViewModel: ViewModelable {
     
     enum Action {
-        case onTapWorkButton(work: Work)
     }
     
     enum State {
@@ -25,20 +25,14 @@ final class HomeStore: ViewModelable {
     @Published private(set) var activeCard: Int = 0
     
     private var cancellables: [AnyCancellable] = []
+        
     
-    let routerSubject = HomeRouter.Subjects()
+    private var externalData: HomeExternal.ExternalData
     
-    init() {
-        state = .works([
-            Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", fontColor: .white),
-            Work(id: 1, title: "작품2", subTitle: "시리즈작품2", image: "main2", fontColor: .white),
-            Work(id: 2, title: "작품3", subTitle: "시리즈작품3", image: "main3", fontColor: .white),
-            Work(id: 3, title: "작품4", subTitle: "이것도작품", image: "main4", fontColor: .white),
-            Work(id: 4, title: "작품5", subTitle: "뉴작품", image: "main5", fontColor: .white),
-            Work(id: 5, title: "작품6", subTitle: "대단한작품", image: "main6", fontColor: .white),
-            Work(id: 6, title: "작품7", subTitle: "완벽한작품", image: "main7", fontColor: .white),
-            Work(id: 7, title: "작품8", subTitle: "굳작품", image: "main8", fontColor: .black)
-        ])
+    init(externalData: HomeExternal.ExternalData) {
+        self.externalData = externalData
+        
+        state = .works(externalData.work)
         
         self.stateModel.$activeCard.sink { completion in
             switch completion {
@@ -48,76 +42,19 @@ final class HomeStore: ViewModelable {
                 print("finished")
             }
         } receiveValue: { [weak self] activeCard in
-            self?.someCoolMethodHere(for: activeCard)
+            guard let self else { return }
+            self.someCoolMethodHere(for: activeCard)
         }.store(in: &cancellables)
     }
     
     func action(_ action: Action) {
-        switch action {
-        case .onTapWorkButton(let work):
-            print("터치다운\(work)")
-            routeToWorkDetail(work: work)
-        }
+
     }
 }
 
-extension HomeStore {
+extension HomeViewModel {
     private func someCoolMethodHere(for activeCard: Int) {
         print("someCoolMethodHere: index received: ", activeCard)
         self.activeCard = activeCard
     }
 }
-
-extension HomeStore {
-    func routeToWorkDetail(work: Work) {
-        routerSubject.screen.send(.workDetail(work: work))
-    }
-}
-
-//final class HomeViewModel: ObservableObject {
-//
-//    // MARK: - Properties
-//
-//    @Published private(set) var stateModel: UIStateModel = UIStateModel()
-//    @Published private(set) var activeCard: Int = 0
-//    @Published private(set) var works = [
-//        Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", fontColor: .white),
-//        Work(id: 1, title: "작품2", subTitle: "시리즈작품2", image: "main2", fontColor: .white),
-//        Work(id: 2, title: "작품3", subTitle: "시리즈작품3", image: "main3", fontColor: .white),
-//        Work(id: 3, title: "작품4", subTitle: "이것도작품", image: "main4", fontColor: .white),
-//        Work(id: 4, title: "작품5", subTitle: "뉴작품", image: "main5", fontColor: .white),
-//        Work(id: 5, title: "작품6", subTitle: "대단한작품", image: "main6", fontColor: .white),
-//        Work(id: 6, title: "작품7", subTitle: "완벽한작품", image: "main7", fontColor: .white),
-//        Work(id: 7, title: "작품8", subTitle: "굳작품", image: "main8", fontColor: .black)
-//    ]
-//    private var cancellables: [AnyCancellable] = []
-//    let routerSubject = HomeRouter.Subjects()
-//
-//
-//    // MARK: - Lifecycle
-//    init() {
-//            self.stateModel.$activeCard.sink { completion in
-//                switch completion {
-//                case let .failure(error):
-//                    print("finished with error: ", error.localizedDescription)
-//                case .finished:
-//                    print("finished")
-//                }
-//            } receiveValue: { [weak self] activeCard in
-//                self?.someCoolMethodHere(for: activeCard)
-//            }.store(in: &cancellables)
-//        }
-//
-//    // MARK: - Helpers
-//
-//    private func someCoolMethodHere(for activeCard: Int) {
-//        print("someCoolMethodHere: index received: ", activeCard)
-//        self.activeCard = activeCard
-//    }
-//}
-//
-//extension HomeViewModel {
-//    func routeToWorkDetail(work: Work) {
-//        routerSubject.screen.send(.workDetail(work: work))
-//    }
-//}

@@ -8,7 +8,36 @@
 import Foundation
 import Combine
 
-final class WorkDetailViewModel: ObservableObject {
+final class WorkDetailViewModel: ViewModelable {
+
+    enum Action {
+        case onTapWorkButton(work: Work)
+    }
+    
+    enum State {
+        case work(Work)
+    }
+    
+    @Published var state: State
+
     // MARK: - Properties
     private var cancellables: [AnyCancellable] = []
+    private var externalData: WorkDetailData.ExternalData
+    
+    init(externalData: WorkDetailData.ExternalData) {
+        self.externalData = externalData
+        state = .work(externalData.work)
+    }
+    
+    func action(_ action: Action) {
+
+    }
 }
+
+extension WorkDetailData {
+    struct ExternalData {
+        let work: Work
+    }
+}
+
+enum WorkDetailData { }
