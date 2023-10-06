@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct WorkDetail: View {
-    @StateObject var viewModel = WorkDetailViewModel()
     
+    @ObservedObject var viewModel: WorkDetailViewModel
+    
+    init(viewModel: WorkDetailViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    @ViewBuilder
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -23,6 +29,6 @@ struct WorkDetail: View {
 
 struct WorkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        WorkDetail()
+        WorkDetail.build(data: .init(work: Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", fontColor: .white)))
     }
 }
