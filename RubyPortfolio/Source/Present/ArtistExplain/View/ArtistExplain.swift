@@ -17,6 +17,12 @@ struct ArtistExplain: View {
     
     @ViewBuilder
     var body: some View {
-        Text("ㅎㅇ")
+        ZStack {
+            Image("backgroundCut")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+            
+            P183_CircularList()
+        }
     }
 }
