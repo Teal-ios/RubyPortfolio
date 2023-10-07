@@ -11,6 +11,7 @@ struct Home: View {
     
     @ObservedObject var viewModel: HomeViewModel
     @State var onToolBarTrigger: Bool = false
+    @State var presentSheetAppear: Bool = false
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -35,13 +36,47 @@ struct Home: View {
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
-                        DarkGrayRoundButton(buttonTitle: "작품 소개")
+                        
+                        Button {
+                            presentSheetAppear = true
+
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .tint(Color.rubyBlack)
+                                    .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
+                                
+                                Text("작품 소개")
+                                    .foregroundColor(Color.rubyWhite)
+                                    .padding(8)
+
+                            }
+                        }
                         
                         Spacer()
-
-                        DarkGrayRoundButton(buttonTitle: "작가 소개")
+                        
+                        onTapToArtistExplain()
+                        
                     }
                 }
+            }
+        }
+        .sheet(isPresented: $presentSheetAppear) {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.rubyWhite, Color.rubyBlack]),
+                               startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+                .presentationDetents([.medium, .large])
+                
+                Text("타이틀타이틀타이틀")
+                    .bold()
+                    .foregroundColor(Color.black)
+                    .position(x: UIScreen.screenWidth / 2, y: 40)
+                
+                Text("ㄹㅁㄴ이ㅏㅓ라ㅣㅇㄴ머라ㅣㅁ너리ㅏㄴㅁㅇ러ㅏㅣㄴㅇ러ㅣㅏㄴㅁㅇ러ㅣㅏㄴㅇ머리ㅏㄴㅁ어라ㅣㄴ머라ㅣㅇㄴ머리ㅏㄴㅇ러ㅏㅣㅇ너라ㅣ")
+                    .bold()
+                    .foregroundColor(Color.white)
+                
             }
         }
     }
@@ -82,6 +117,26 @@ extension Home {
             SnapCarousel(works: works)
                 .environmentObject(viewModel.stateModel)
                 .font(.system(size: 22))
+        }
+    }
+}
+
+extension Home {
+    @ViewBuilder
+    private func onTapToArtistExplain() -> some View {
+        
+        NavigationLink(destination: ArtistExplain(viewModel: ArtistExplainViewModel())) {
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .tint(Color.rubyBlack)
+                    .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
+                
+                Text("작가 소개")
+                    .foregroundColor(Color.rubyWhite)
+                    .padding(8)
+
+            }
         }
     }
 }
