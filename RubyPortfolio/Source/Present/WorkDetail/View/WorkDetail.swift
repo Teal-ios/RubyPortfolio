@@ -15,6 +15,20 @@ struct WorkDetail: View {
         self.viewModel = viewModel
     }
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    var backButton : some View {  // <-- 👀 커스텀 버튼
+        Button{
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            HStack {
+                Image(systemName: "chevron.left") // 화살표 Image
+                    .aspectRatio(contentMode: .fit)
+                    .tint(.white)
+            }
+        }
+    }
+    
     @ViewBuilder
     var body: some View {
         ZStack {
@@ -29,7 +43,10 @@ struct WorkDetail: View {
 
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: backButton)
     }
+    
         
     
     @ViewBuilder

@@ -12,6 +12,7 @@ struct Home: View {
     @ObservedObject var viewModel: HomeViewModel
     @State var onToolBarTrigger: Bool = false
     @State var presentSheetAppear: Bool = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
