@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F5A2EFE2AD52C6D0086DEA8 /* WorksSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5A2EFD2AD52C6D0086DEA8 /* WorksSeries.swift */; };
 		2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB435012AC3E1B000EBF3DA /* Work.swift */; };
 		2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB435092AC3E41400EBF3DA /* Color + Extension.swift */; };
 		2FCC0A382ACFCBA300206832 /* UIScreen + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC0A372ACFCBA300206832 /* UIScreen + Extension.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F5A2EFD2AD52C6D0086DEA8 /* WorksSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorksSeries.swift; sourceTree = "<group>"; };
 		2FB435012AC3E1B000EBF3DA /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 		2FB435092AC3E41400EBF3DA /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		2FCC0A372ACFCBA300206832 /* UIScreen + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen + Extension.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2FB435012AC3E1B000EBF3DA /* Work.swift */,
+				2F5A2EFD2AD52C6D0086DEA8 /* WorksSeries.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */,
 				2FD141ED2ACEE2670024CD72 /* Home+Build.swift in Sources */,
 				2FD141E52ACE896F0024CD72 /* ViewModelable.swift in Sources */,
+				2F5A2EFE2AD52C6D0086DEA8 /* WorksSeries.swift in Sources */,
 				2FD141E22ACE5CFB0024CD72 /* WorkDetail.swift in Sources */,
 				2FB4350A2AC3E41400EBF3DA /* Color + Extension.swift in Sources */,
 				2FD141CF2ACE4A310024CD72 /* RouterCloseModifier.swift in Sources */,

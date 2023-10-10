@@ -13,6 +13,7 @@ struct Work: Decodable, Hashable, Identifiable {
     var subTitle: String = ""
     var image: String = ""
     var workColor: WorkColor = .white
+    var seriesCount: Int = 0
 }
 
 enum WorkColor: Hashable, Decodable {
