@@ -32,7 +32,7 @@ struct WorkDetail: View {
     @ViewBuilder
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.rubyWhite, Color.rubyBlack]),
+            LinearGradient(gradient: Gradient(colors: [Color.rubyWhite, colorSetting()]),
                             startPoint: .top, endPoint: .bottom)
             .edgesIgnoringSafeArea(.all)
             
@@ -61,12 +61,40 @@ struct WorkDetail: View {
                     .cornerRadius(8)
                     .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
                     .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+                    .padding(.bottom, 20.0)
                 
                 Text(work.title)
                     .foregroundColor(Color.rubyWhite)
-
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .font(.title2)
+                    .padding(.bottom, 20.0)
+                
                 Text(work.subTitle)
                     .foregroundColor(Color.rubyWhite)
+                    .font(.title3)
+                    .multilineTextAlignment(.center)
+
+            }
+        }
+    }
+}
+
+extension WorkDetail {
+    private func colorSetting() -> Color {
+        switch viewModel.state {
+        case let .work(work):
+            switch work.workColor {
+            case .white:
+                return Color.rubyBlack
+            case .brown:
+                return Color.brown
+            case .turquoise:
+                return Color.turquoise
+            case .yellow:
+                return Color.rubyYellow
+            default:
+                return Color.rubyBlack
             }
         }
     }
@@ -74,6 +102,6 @@ struct WorkDetail: View {
 
 struct WorkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        WorkDetail.build(data: .init(work: Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", fontColor: .white)))
+        WorkDetail.build(data: .init(work: Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", workColor: .white)))
     }
 }

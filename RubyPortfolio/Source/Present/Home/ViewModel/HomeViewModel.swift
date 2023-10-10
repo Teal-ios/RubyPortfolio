@@ -26,7 +26,6 @@ final class HomeViewModel: ViewModelable {
     
     private var cancellables: [AnyCancellable] = []
         
-    
     private var externalData: HomeExternal.ExternalData
     
     init(externalData: HomeExternal.ExternalData) {
