@@ -12,10 +12,14 @@ struct Work: Decodable, Hashable, Identifiable {
     var title: String = ""
     var subTitle: String = ""
     var image: String = ""
-    var fontColor: FontColor = .white
+    var workColor: WorkColor = .white
+    var seriesCount: Int = 0
 }
 
-enum FontColor: Hashable, Decodable {
+enum WorkColor: Hashable, Decodable {
     case black
     case white
+    case brown
+    case turquoise
+    case yellow
 }

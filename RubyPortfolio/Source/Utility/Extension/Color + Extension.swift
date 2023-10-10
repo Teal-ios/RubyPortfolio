@@ -22,7 +22,8 @@ extension UIColor {
     static let black100 = UIColor.makeColor(from: "#0F0F0F")
     static let white100 = UIColor.makeColor(from: "#FFFFFF")
     static let darkGray = UIColor.makeColor(from: "#3F3F3F")
-
+    static let uiturquoise = UIColor.init(red: 77, green: 166, blue: 155)
+    static let uiyellow = UIColor.init(red: 198, green: 131, blue: 46)
 }
 
 extension UIColor {
@@ -46,4 +47,6 @@ extension Color {
     static let rubyWhite = Color(uiColor: UIColor.white100)
     static let rubyBlack = Color(uiColor: UIColor.black100)
     static let darkGray = Color(uiColor: UIColor.darkGray)
+    static let turquoise = Color(uiColor: UIColor.uiturquoise)
+    static let rubyYellow = Color(uiColor: UIColor.uiyellow)
 }

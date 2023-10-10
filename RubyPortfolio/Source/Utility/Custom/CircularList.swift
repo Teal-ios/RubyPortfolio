@@ -179,11 +179,7 @@ struct DetailView: View {
 
 extension DetailView {
     private func viewCase(_ index: Int) -> some View {
-        if index == 0 {
-            return ArtistExplainDetailView()
-        } else {
-            return ArtistExplainDetailView()
-        }
+        DetailArtistInfoView(viewCase: index)
     }
 }
 struct P183_CircularList_Previews: PreviewProvider {
