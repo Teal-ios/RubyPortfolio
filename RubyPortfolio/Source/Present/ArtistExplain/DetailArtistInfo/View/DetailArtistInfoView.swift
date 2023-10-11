@@ -112,7 +112,11 @@ Education/Workshop
             switch viewCase {
             case 0:
                 setupArtistExplainView()
-            case 5:
+            case 1:
+                setupScreenTranstionView()
+            case 2:
+                setupArtistRecordView()
+            case 3:
                 setupMakingFilmView()
             default:
                 setupArtistRecordView()
@@ -176,5 +180,17 @@ extension DetailArtistInfoView {
 extension DetailArtistInfoView {
     private func setupMakingFilmView() -> some View {
         MakingFilmView()
+    }
+}
+
+extension DetailArtistInfoView {
+    private func setupInteractiveView() -> some View {
+        InteractiveView()
+    }
+}
+
+extension DetailArtistInfoView {
+    private func setupScreenTranstionView() -> some View {
+        P162_ScreenTransition()
     }
 }
