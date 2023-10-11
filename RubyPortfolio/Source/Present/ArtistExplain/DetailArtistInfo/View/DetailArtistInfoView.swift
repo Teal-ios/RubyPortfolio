@@ -112,6 +112,8 @@ Education/Workshop
             switch viewCase {
             case 0:
                 setupArtistExplainView()
+            case 5:
+                setupMakingFilmView()
             default:
                 setupArtistRecordView()
             }
@@ -168,5 +170,11 @@ extension DetailArtistInfoView {
                 .foregroundColor(.rubyWhite)
                 .bold()
         }
+    }
+}
+
+extension DetailArtistInfoView {
+    private func setupMakingFilmView() -> some View {
+        MakingFilmView()
     }
 }

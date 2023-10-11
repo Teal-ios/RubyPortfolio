@@ -23,7 +23,7 @@ struct P183_CircularList: View {
                             Rectangle()
                                 .fill(Color.clear)
                                 .frame(height: proxyP.size.height * 0.5)
-                            ForEach(0...3, id:\.self) { index in
+                            ForEach(0...5, id:\.self) { index in
                                 GeometryReader { proxyC in
                                     let rect = proxyC.frame(in: .named("scroll"))
                                     let y = rect.minY
@@ -107,9 +107,13 @@ struct P183_CircularList: View {
         case 1:
             return "작가 이력"
         case 2:
-            return "작품 더보기"
+            return "일기장"
         case 3:
             return "이솝 이야기"
+        case 4:
+            return "신세계 이야기"
+        case 5:
+            return "메이킹 필름"
         default:
             return "미정"
         }

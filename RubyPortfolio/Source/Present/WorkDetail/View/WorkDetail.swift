@@ -54,23 +54,20 @@ struct WorkDetail: View {
         switch viewModel.state {
         case let .work(work):
             VStack {
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(0..<work.seriesCount) { i in
-                            Image(uiImage: returnToWorksSeries(id: work.id)[i])
-                                .resizable()
-                                .foregroundColor(Color.white)
-                                .background(Color.gray)
-                                .cornerRadius(8)
-                                .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
-                                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
-                                .padding(.horizontal, 20.0)
-                                .padding(.bottom, 20.0)
-                        }
+                TabView {
+                    ForEach(0..<work.seriesCount) { i in
+                        Image(uiImage: returnToWorksSeries(id: work.id)[i])
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .background(Color.gray)
+                            .cornerRadius(8)
+                            .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
                     }
                 }
-                .frame(width: UIScreen.screenWidth, height: UIScreen.screenWidth)
-                .transition(AnyTransition.slide)
+                .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+                
                 
                 Text(work.title)
                     .foregroundColor(Color.rubyWhite)
