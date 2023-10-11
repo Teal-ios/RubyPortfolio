@@ -51,8 +51,9 @@ public struct P162_ScreenTransition: View {
                 
                 datas = [
                     WorkStory(storyImages: [
-                    UIImage(named: "6-2. Luv letter,Embroidery on paper, 300x200mm, 2023")!,
-                    UIImage(named: "6-1. Luv letter, blue spring, universe, Embroidery on paper, 300x200mm, 2023")!
+                        IdImage(image: UIImage(named: "6-2. Luv letter,Embroidery on paper, 300x200mm, 2023")!)
+                    ,
+                        IdImage(image: UIImage(named: "6-1. Luv letter, blue spring, universe, Embroidery on paper, 300x200mm, 2023")!)
                     ], title: "Diary\nStory", name: "일기장 시리즈", description: "오랜 시간 글을 마주하며 비워내는 내면의 이야기", color: Color.gray,
                               explain: """
                                  작업은 오랜 시간 동안 써오던 글과 편지, 일기장 등 사적인 기록물을 주제로 이야기를 써냅니다. 오랫동안 글을 남기고 기록하던 습관은 자신과 소통하는 또 다른 언어이자 매개체였습니다.
@@ -70,9 +71,9 @@ public struct P162_ScreenTransition: View {
                                 """
                                 ),
                     WorkStory(storyImages: [
-                    UIImage(named: "5-3. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!,
-                    UIImage(named: "5-1. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!,
-                    UIImage(named: "5-2. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!
+                        IdImage(image: UIImage(named: "5-3. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!),
+                        IdImage(image: UIImage(named: "5-1. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!),
+                        IdImage(image: UIImage(named: "5-2. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!)
                     ], title: "Aesop\nStory", name: "이솝 초대장", description: "Gloam Eau de parfume", color: Color.brown,
                               explain:
                                 """
@@ -85,10 +86,10 @@ public struct P162_ScreenTransition: View {
                              )
                     ,
                     WorkStory(storyImages: [
-                    UIImage(named: "7-1. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!,
-                    UIImage(named: "7-2. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!,
-                    UIImage(named: "7-3. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!,
-                    UIImage(named: "7-4. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!
+                        IdImage(image: UIImage(named: "7-1. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!),
+                        IdImage(image: UIImage(named: "7-2. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!),
+                        IdImage(image: UIImage(named: "7-3. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!),
+                        IdImage(image: UIImage(named: "7-4. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!)
                     ], title: "Shinsegae\nStory", name: "와인 단청 댕기", description: "신당창작아케이드 공예상품 개발사업", color: Color.turquoise,
                               explain: """
  와인 단청 댕기는 한국의 소녀들이 머리를 묶을 때 사용했던 끝이 뾰족한 제비부리댕기에서 형태를 차용한 주류 패키징 상품입니다.
@@ -116,7 +117,7 @@ extension Animation {
 fileprivate
 struct WorkStory: Identifiable {
     var id = UUID()
-    var storyImages: [UIImage]
+    var storyImages: [IdImage]
     var title: String
     var name: String
     var description: String
@@ -173,8 +174,8 @@ struct DetailView: View {
                     Spacer()
 
                     TabView {
-                        ForEach(0..<data.storyImages.count) { i in
-                            Image(uiImage: data.storyImages[i])
+                        ForEach(data.storyImages, id: \.id) { ele in
+                            Image(uiImage: ele.image)
                                 .resizable()
                                 .foregroundColor(Color.white)
                                 .background(Color.gray)
@@ -219,7 +220,7 @@ struct NamespaceView: View {
         ZStack(alignment: .bottomLeading) {
             GeometryReader { proxy in
                 ZStack {
-                    Image(uiImage: data.storyImages[0])
+                    Image(uiImage: data.storyImages[0].image)
                         .resizable()
                 }
             }
