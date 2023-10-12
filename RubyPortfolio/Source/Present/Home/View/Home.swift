@@ -36,6 +36,7 @@ struct Home: View {
                     contentView
                 }
                 .toolbar {
+                    
                     ToolbarItemGroup(placement: .bottomBar) {
                         
                         Button {
@@ -44,6 +45,7 @@ struct Home: View {
                         } label: {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 4)
+                                    .frame(width: 80, height: 40)
                                     .tint(Color.rubyBlack)
                                     .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
                                 
@@ -159,13 +161,14 @@ extension Home {
         NavigationLink(destination: ArtistExplain(viewModel: ArtistExplainViewModel())) {
             
             ZStack {
+                
                 RoundedRectangle(cornerRadius: 4)
                     .tint(Color.rubyBlack)
                     .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
-                
-                Text("작가 소개")
-                    .foregroundColor(Color.rubyWhite)
-                    .padding(8)
+
+                Image(uiImage: UIImage(named: "sign")!)
+                    .resizable()
+                    .frame(width: 80, height: 40)
 
             }
         }

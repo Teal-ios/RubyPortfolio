@@ -31,10 +31,16 @@ struct ArtistExplain: View {
     
     @ViewBuilder
     var body: some View {
+        
         ZStack {
             Image("backgroundCut")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
+            
+            Image("sign")
+                .resizable()
+                .frame(width: 150, height: 75)
+                .position(x: UIScreen.screenWidth / 2, y: UIScreen.screenHeight / 8)
             
             P183_CircularList()
         }
