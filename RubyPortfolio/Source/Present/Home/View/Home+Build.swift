@@ -9,8 +9,8 @@ import SwiftUI
 
 extension Home {
 
-    static func build(data: HomeExternal.ExternalData) -> some View {
-        let viewModel = HomeViewModel(externalData: data)
+    static func build(data: HomeExternal.ExternalData, stateModel: UIStateModel) -> some View {
+        let viewModel = HomeViewModel(externalData: data, stateModel: stateModel)
         let vc = Home(viewModel: viewModel)
         return vc
     }

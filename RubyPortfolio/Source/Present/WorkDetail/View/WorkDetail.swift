@@ -55,14 +55,22 @@ struct WorkDetail: View {
         case let .work(work):
             VStack {
                 TabView {
-                    ForEach(0..<work.seriesCount) { i in
-                        Image(uiImage: returnToWorksSeries(id: work.id)[i])
+                    ForEach(work.worksImage, id: \.id) { ele in
+                        Image(uiImage: ele.image)
                             .resizable()
                             .foregroundColor(Color.white)
                             .background(Color.gray)
                             .cornerRadius(8)
                             .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
                     }
+//                    ForEach(0..<work.seriesCount) { i in
+//                        Image(uiImage: returnToWorksSeries(id: work.id)[i])
+//                            .resizable()
+//                            .foregroundColor(Color.white)
+//                            .background(Color.gray)
+//                            .cornerRadius(8)
+//                            .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
+//                    }
                 }
                 .frame(width: UIScreen.screenWidth - 40, height: UIScreen.screenWidth - 40)
                 .tabViewStyle(PageTabViewStyle())
@@ -154,8 +162,8 @@ extension WorkDetail {
     }
 }
 
-struct WorkDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkDetail.build(data: .init(work: Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", workColor: .white, seriesCount: 1)))
-    }
-}
+//struct WorkDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WorkDetail.build(data: .init(work: Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", workColor: .white, seriesCount: 1)))
+//    }
+//}

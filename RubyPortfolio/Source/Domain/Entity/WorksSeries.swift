@@ -41,9 +41,9 @@ enum WorksSeries: Hashable {
             UIImage(named: "4-3. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018"),
             UIImage(named: "4-4. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018")]
         case .seven:
-            return [UIImage(named: "5-1. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023"),
-            UIImage(named: "5-2. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023"),
-            UIImage(named: "5-3. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")]
+            return [UIImage(named: "이솝1"),
+            UIImage(named: "이솝2"),
+            UIImage(named: "이솝3")]
         case .eight:
             return [UIImage(named: "6-2. Luv letter,Embroidery on paper, 300x200mm, 2023"),
             UIImage(named: "6-1. Luv letter, blue spring, universe, Embroidery on paper, 300x200mm, 2023")]

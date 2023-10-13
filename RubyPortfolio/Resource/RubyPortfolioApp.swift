@@ -11,6 +11,9 @@ import SwiftUI
 struct RubyPortfolioApp: App {
     var body: some Scene {
         WindowGroup {
+                ArtistExplain(viewModel: ArtistExplainViewModel())
+            
+            /*
             Home.build(data: .init(work: [
                 Work(id: 0,
                      title: "0412-2",
@@ -45,7 +48,7 @@ struct RubyPortfolioApp: App {
                 Work(id: 6,
                      title: "Brand ‘Aesop’ Gloam eau de parfum invitation collaboration",
                      subTitle: "Embroidery on paper, cotton thread\n148 x 210mm\n2023",
-                     image: "5-1. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023",
+                     image: "이솝1",
                      workColor: .brown, seriesCount: 3),
                 Work(id: 7,
                      title: "일기장",
@@ -58,6 +61,7 @@ struct RubyPortfolioApp: App {
                      image: "7-1. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023",
                      workColor: .turquoise, seriesCount: 4)
             ]))
+             */
         }
     }
 }

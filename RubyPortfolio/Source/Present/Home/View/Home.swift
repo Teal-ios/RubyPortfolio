@@ -9,79 +9,217 @@ import SwiftUI
 
 struct Home: View {
     
-    @ObservedObject var viewModel: HomeViewModel
+    @StateObject var viewModel: HomeViewModel
+//    @ObservedObject var viewModel: HomeViewModel
     @State var onToolBarTrigger: Bool = false
     @State var presentSheetAppear: Bool = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @EnvironmentObject var UIState: UIStateModel
+    @GestureState var isDetectingLongPress = false
+    
     init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
+        self._viewModel = StateObject(wrappedValue: viewModel)
+//        self.viewModel = viewModel
     }
     // MARK: - Body
     
+    let spacing: CGFloat = 16
+    let widthOfHiddenCards: CGFloat = 32
+    let cardHeight: CGFloat = 279
+    
+    let cardWidth = UIScreen.main.bounds.width - (32 * 2) - (16 * 2)
+    
+    
+    
+
+    
     var body: some View {
-        NavigationView {
-            switch onToolBarTrigger {
-            case false:
-                Button {
-                    onToolBarTrigger.toggle()
-                } label: {
-                    contentView
-                }
-                
-            case true:
-                Button {
-                    onToolBarTrigger.toggle()
-                } label: {
-                    contentView
-                }
-                .toolbar {
-                    
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        
-                        Button {
-                            presentSheetAppear = true
-
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .frame(width: 80, height: 40)
-                                    .tint(Color.rubyBlack)
-                                    .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
+        switch viewModel.state {
+        case let .works(works):
+            let totalSpacing = (CGFloat(works.count - 1)) * spacing
+            let totalCanvasWidth: CGFloat = (cardWidth * CGFloat(works.count)) + totalSpacing
+            let xOffsetToShift = (totalCanvasWidth - UIScreen.main.bounds.width) / 2
+            let leftPadding = widthOfHiddenCards + spacing
+            let totalMovement = cardWidth + spacing
+            let activeOffset = xOffsetToShift + (leftPadding) - (totalMovement * CGFloat(viewModel.stateModel.activeCard))
+            var calcOffset = Float(activeOffset)
+            let nextOffset = xOffsetToShift + (leftPadding) - (totalMovement * CGFloat(viewModel.stateModel.activeCard) + 1)
+            if (calcOffset != Float(nextOffset)) {
+                calcOffset = Float(activeOffset) + viewModel.stateModel.screenDrag
+            }
+            return Canvas{ HStack(alignment: .center, spacing: spacing) {
+                ForEach(works, id: \.id) { work in
+                    NavigationLink(
+                        destination: {
+                            WorkDetail(
+                                viewModel: WorkDetailViewModel(
+                                    externalData: WorkDetailData.ExternalData(
+                                        work: work
+                                    )
+                                )
+                            )
+                        },
+                        label: {
+                            Item(_id: work.id,
+                                 spacing: 16,
+                                 widthOfHiddenCards: 32,
+                                 cardHeight: 279) {
                                 
-                                Text("작품 소개")
-                                    .foregroundColor(Color.rubyWhite)
-                                    .padding(8)
-
+                                VStack {
+                                    Image(work.image)
+                                        .resizable()
+                                }
                             }
+                                 .foregroundColor(Color.white)
+                                 .background(Color.gray)
+                                 .cornerRadius(8)
+                                 .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
+                                 .transition(AnyTransition.slide)
+                                 .animation(.spring())
+                                 .environmentObject(viewModel.stateModel)
+                            
+                            
+                            //                            Carousel(
+                            //                                numberOfItems: CGFloat(works.count),
+                            //                                spacing: 16,
+                            //                                widthOfHiddenCards: 32
+                            //                            ) {
+                            //                                ForEach(works, id: \.self.id) { item in
+                            //                                    Item(
+                            //                                        _id: Int(item.id),
+                            //                                        spacing: 16,
+                            //                                        widthOfHiddenCards: 32,
+                            //                                        cardHeight: 279
+                            //                                    ) {
+                            //                                        VStack {
+                            //                                            Image(item.image)
+                            //                                                .resizable()
+                            //                                        }
+                            //                                    }
+                            //                                    .foregroundColor(Color.white)
+                            //                                    .background(Color.gray)
+                            //                                    .cornerRadius(8)
+                            //                                    .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
+                            //                                    .transition(AnyTransition.slide)
+                            //                                    .animation(.spring())
+                            //                                }
+                            //                            }
+                            //                            .environmentObject(viewModel.stateModel)
                         }
-                        
-                        Spacer()
-                        
-                        onTapToArtistExplain()
-                        
-                    }
+                    )
                 }
             }
+            .offset(x: CGFloat(calcOffset), y: 0)
+            .gesture(DragGesture().updating($isDetectingLongPress) { currentState, gestureState, transaction in
+                DispatchQueue.main.async {
+                    viewModel.stateModel.screenDrag = Float(currentState.translation.width)
+                }
+                
+                
+            }.onEnded { value in
+                viewModel.stateModel.screenDrag = 0
+                
+                if (value.translation.width < -50) &&  viewModel.stateModel.activeCard < Int(works.count) - 1 {
+                    viewModel.stateModel.activeCard = viewModel.stateModel.activeCard + 1
+                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                    impactMed.impactOccurred()
+                }
+                
+                if (value.translation.width > 50) && viewModel.stateModel.activeCard > 0 {
+                    viewModel.stateModel.activeCard = viewModel.stateModel.activeCard - 1
+                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                    impactMed.impactOccurred()
+                }
+            })
+            .transition(AnyTransition.slide)
+            .animation(.spring())
+                
+                
+                //            SnapCarousel(works: works)
+                //                .environmentObject(viewModel.stateModel)
+                //                .font(.system(size: 22))
+                
+                //            contentView
+                
+                //        .navigationBarItems(leading: backButton)
+                
+                //        NavigationView {
+                //            switch onToolBarTrigger {
+                //            case false:
+                //                Button {
+                //                    onToolBarTrigger.toggle()
+                //                } label: {
+                //                    contentView
+                //                }
+                //
+                //            case true:
+                //                Button {
+                //                    onToolBarTrigger.toggle()
+                //                } label: {
+                //                    contentView
+                //                }
+                //                .toolbar {
+                //
+                //                    ToolbarItemGroup(placement: .bottomBar) {
+                //
+                //                        Button {
+                //                            presentSheetAppear = true
+                //
+                //                        } label: {
+                //                            ZStack {
+                //                                RoundedRectangle(cornerRadius: 4)
+                //                                    .frame(width: 80, height: 40)
+                //                                    .tint(Color.rubyBlack)
+                //                                    .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
+                //
+                //                                Text("Explain")
+                //                                    .foregroundColor(Color.rubyWhite)
+                //                                    .padding(8)
+                //
+                //                            }
+                //                        }
+                //
+                //                        Spacer()
+                //
+                //                        onTapToArtistExplain()
+                //
+                //                    }
+                //                }
+                //            }
+                //        }
+                //        .sheet(isPresented: $presentSheetAppear) {
+                //            ZStack {
+                //                LinearGradient(gradient: Gradient(colors: [Color.rubyWhite, colorSetting()]),
+                //                               startPoint: .top, endPoint: .bottom)
+                //                .edgesIgnoringSafeArea(.all)
+                //                .presentationDetents([.medium, .large])
+                //
+                //                titleText
+                //                    .bold()
+                //                    .foregroundColor(Color.black)
+                //                    .position(x: UIScreen.screenWidth / 2, y: 40)
+                //                    .multilineTextAlignment(.center)
+                //
+                //                subtitleText
+                //                    .bold()
+                //                    .foregroundColor(Color.white)
+                //                    .multilineTextAlignment(.center)
+                //
+                //            }
+                //        }
+            }
         }
-        .sheet(isPresented: $presentSheetAppear) {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.rubyWhite, colorSetting()]),
-                               startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-                .presentationDetents([.medium, .large])
-                                
-                titleText
-                    .bold()
-                    .foregroundColor(Color.black)
-                    .position(x: UIScreen.screenWidth / 2, y: 40)
-                    .multilineTextAlignment(.center)
-                
-                subtitleText
-                    .bold()
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.center)
-                
+    }
+    
+    var backButton : some View {  // <-- 👀 커스텀 버튼
+        Button{
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            HStack {
+                Image(systemName: "chevron.left") // 화살표 Image
+                    .aspectRatio(contentMode: .fit)
+                    .tint(.white)
             }
         }
     }
@@ -146,7 +284,15 @@ extension Home {
     @ViewBuilder
     private func getWorkCellButtonTap(works: [Work]) -> some View {
         
-        NavigationLink(destination: WorkDetail(viewModel: WorkDetailViewModel(externalData: WorkDetailData.ExternalData(work: works[viewModel.activeCard])))) {
+        NavigationLink(
+            destination: WorkDetail(
+                viewModel: WorkDetailViewModel(
+                    externalData: WorkDetailData.ExternalData(
+                        work: works[viewModel.activeCard]
+                    )
+                )
+            )
+        ) {
             SnapCarousel(works: works)
                 .environmentObject(viewModel.stateModel)
                 .font(.system(size: 22))
@@ -172,20 +318,5 @@ extension Home {
 
             }
         }
-    }
-}
-
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home.build(data: .init(work: [
-            Work(id: 0, title: "작품1", subTitle: "첫작품", image: "main1", workColor: .white),
-            Work(id: 1, title: "작품2", subTitle: "시리즈작품2", image: "main2", workColor: .white),
-            Work(id: 2, title: "작품3", subTitle: "시리즈작품3", image: "main3", workColor: .white),
-            Work(id: 3, title: "작품4", subTitle: "이것도작품", image: "main4", workColor: .white),
-            Work(id: 4, title: "작품5", subTitle: "뉴작품", image: "main5", workColor: .white),
-            Work(id: 5, title: "작품6", subTitle: "대단한작품", image: "main6", workColor: .white),
-            Work(id: 6, title: "작품7", subTitle: "완벽한작품", image: "main7", workColor: .white),
-            Work(id: 7, title: "작품8", subTitle: "굳작품", image: "main8", workColor: .black)
-        ]))
     }
 }

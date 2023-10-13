@@ -74,9 +74,9 @@ public struct P162_ScreenTransition: View {
                                 """
                                  ),
                         WorkStory(storyImages: [
-                            IdImage(image: UIImage(named: "5-3. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!),
-                            IdImage(image: UIImage(named: "5-1. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!),
-                            IdImage(image: UIImage(named: "5-2. Brand Aesop Gloam eau de parfum invitation collaboration, Embroidery on paper, cotton thread, 148 x 210mm, 2023")!)
+                            IdImage(image: UIImage(named: "이솝1")!),
+                            IdImage(image: UIImage(named: "이솝2")!),
+                            IdImage(image: UIImage(named: "이솝3")!)
                         ], title: "Aesop\nStory", name: "이솝 초대장", description: "Gloam Eau de parfume", color: Color.brown,
                                   explain:
                                 """

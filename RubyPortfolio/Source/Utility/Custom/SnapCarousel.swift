@@ -9,6 +9,13 @@ import SwiftUI
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
+    
+    @State
+    var activeCard: Int = 0
+    
+    @State
+    var screenDrag: Float = 0.0
+    
     var works: [Work]
     
     init(works: [Work]) {
@@ -56,6 +63,7 @@ class UIStateModel: ObservableObject {
     @Published var screenDrag: Float = 0.0
 }
 
+
 struct Carousel<Items : View> : View {
     let items: Items
     let numberOfItems: CGFloat
@@ -67,6 +75,8 @@ struct Carousel<Items : View> : View {
     @GestureState var isDetectingLongPress = false
     
     @EnvironmentObject var UIState: UIStateModel
+    
+    
         
     @inlinable public init(
         numberOfItems: CGFloat,
@@ -103,7 +113,10 @@ struct Carousel<Items : View> : View {
         }
         .offset(x: CGFloat(calcOffset), y: 0)
         .gesture(DragGesture().updating($isDetectingLongPress) { currentState, gestureState, transaction in
-            self.UIState.screenDrag = Float(currentState.translation.width)
+            DispatchQueue.main.async {
+                self.UIState.screenDrag = Float(currentState.translation.width)
+            }
+            
             
         }.onEnded { value in
             self.UIState.screenDrag = 0
@@ -165,19 +178,19 @@ struct Item<Content: View>: View {
     }
 }
 
-struct SnapCarousel_Previews: PreviewProvider {
-    static var previews: some View {
-        let items = [
-            Work(id: 0, title: "작품1", subTitle: "이것도테스트", image: "main1"),
-            Work(id: 1, title: "작품2", subTitle: "이것도테스트", image: "main2"),
-            Work(id: 2, title: "작품3", subTitle: "이것도테스트", image: "main3"),
-            Work(id: 3, title: "작품4", subTitle: "이것도테스트", image: "main4"),
-            Work(id: 4, title: "작품5", subTitle: "이것도테스트", image: "main5"),
-            Work(id: 5, title: "작품6", subTitle: "이것도테스트", image: "main6"),
-            Work(id: 6, title: "작품7", subTitle: "이것도테스트", image: "main7"),
-            Work(id: 7, title: "작품8", subTitle: "이것도테스트", image: "main8")
-
-        ]
-        SnapCarousel(works: items)
-    }
-}
+//struct SnapCarousel_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let items = [
+//            Work(id: 0, title: "작품1", subTitle: "이것도테스트", image: "main1"),
+//            Work(id: 1, title: "작품2", subTitle: "이것도테스트", image: "main2"),
+//            Work(id: 2, title: "작품3", subTitle: "이것도테스트", image: "main3"),
+//            Work(id: 3, title: "작품4", subTitle: "이것도테스트", image: "main4"),
+//            Work(id: 4, title: "작품5", subTitle: "이것도테스트", image: "main5"),
+//            Work(id: 5, title: "작품6", subTitle: "이것도테스트", image: "main6"),
+//            Work(id: 6, title: "작품7", subTitle: "이것도테스트", image: "main7"),
+//            Work(id: 7, title: "작품8", subTitle: "이것도테스트", image: "main8")
+//
+//        ]
+//        SnapCarousel(works: items)
+//    }
+//}

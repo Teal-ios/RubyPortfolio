@@ -17,34 +17,35 @@ struct ArtistExplain: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    var backButton : some View {
-        Button{
-            self.presentationMode.wrappedValue.dismiss()
-        } label: {
-            HStack {
-                Image(systemName: "chevron.left") 
-                    .aspectRatio(contentMode: .fit)
-                    .tint(.white)
-            }
-        }
-    }
+//    var backButton : some View {
+//        Button{
+//            self.presentationMode.wrappedValue.dismiss()
+//        } label: {
+//            HStack {
+//                Image(systemName: "chevron.left")
+//                    .aspectRatio(contentMode: .fit)
+//                    .tint(.white)
+//            }
+//        }
+//    }
     
     @ViewBuilder
     var body: some View {
-        
-        ZStack {
-            Image("backgroundCut")
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
-            
-            Image("sign")
-                .resizable()
-                .frame(width: 150, height: 75)
-                .position(x: UIScreen.screenWidth / 2, y: UIScreen.screenHeight / 8)
-            
-            P183_CircularList()
+        NavigationView {
+            ZStack {
+                Image("backgroundCut")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                
+                Image("sign")
+                    .resizable()
+                    .frame(width: 150, height: 75)
+                    .position(x: UIScreen.screenWidth / 2, y: UIScreen.screenHeight / 8)
+                
+                P183_CircularList()
+            }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButton)
+//        .navigationBarBackButtonHidden(true)
+//        .navigationBarItems(leading: backButton)
     }
 }

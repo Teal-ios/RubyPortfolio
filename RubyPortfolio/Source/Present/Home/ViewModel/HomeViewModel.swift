@@ -20,7 +20,7 @@ final class HomeViewModel: ViewModelable {
     
     @Published var state: State
     
-    @Published private(set) var stateModel: UIStateModel = UIStateModel()
+    @Published private(set) var stateModel: UIStateModel
     
     @Published private(set) var activeCard: Int = 0
     
@@ -28,9 +28,9 @@ final class HomeViewModel: ViewModelable {
         
     private var externalData: HomeExternal.ExternalData
     
-    init(externalData: HomeExternal.ExternalData) {
+    init(externalData: HomeExternal.ExternalData, stateModel: UIStateModel) {
         self.externalData = externalData
-        
+        self.stateModel = stateModel
         state = .works(externalData.work)
         
         self.stateModel.$activeCard.sink { completion in
