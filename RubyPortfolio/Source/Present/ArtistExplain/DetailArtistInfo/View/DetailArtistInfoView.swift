@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct DetailArtistInfoView: View {
     var content =
@@ -113,10 +114,12 @@ Education/Workshop
             case 0:
                 setupArtistExplainView()
             case 1:
-                setupScreenTranstionView()
+                setupExhibitionView()
             case 2:
-                setupArtistRecordView()
+                setupScreenTranstionView()
             case 3:
+                setupArtistRecordView()
+            case 4:
                 setupMakingFilmView()
             default:
                 setupArtistRecordView()
@@ -156,12 +159,8 @@ extension DetailArtistInfoView {
                             .multilineTextAlignment(.center)
                     }
                 }
-                //                Text("\n태피스트리(Tapestry), 자수(Embroidery)와 같은 섬유 예술을 기반으로 인간 내면을 탐구하고 인지하며 진솔하게 시각적으로 표현합니다. \n\n 주요 작업은 전통적인 태피스트리의 고블랭직(Gobelin)으로, 긴장시켜 놓은 날실에 평직으로 씨실을 정교하게 짜넣어 마치 회화처럼 보이게 직물을 제작할 수 있는 기법을 사용합니다. 이러한 전통적인 태피스트리 기법을 활용하되, 인간 내면의 가장 깊은 부분을 꺼내어 날 것의 모습으로 드러내고 썼다 지웠다 하는 행위의 흔적을 시각적으로 나타냅니다. \n\n 작업을 통해 스스로에 대한 내면의 사유의 시간을 갖고 비워내는 과정을 거쳐 끝내 사라지는 숭고한 경험을 하게 되며, 내면의 가장 깊숙한 인간의 삶에 대한 이야기를 씨실과 날실로 엮어 진솔하게 풀어내고자 합니다. \n현재 서울문화재단 신당창작아케이드 13-14기 레지던시 입주작가로 활동하며 공예와 조형예술 활동을 활발히 하고 있습니다.")
-                //                    .foregroundColor(.rubyWhite)
-                //                    .multilineTextAlignment(.center)
             }
         }
-        
     }
 }
 
@@ -208,5 +207,93 @@ extension DetailArtistInfoView {
 extension DetailArtistInfoView {
     private func setupScreenTranstionView() -> some View {
         P162_ScreenTransition()
+    }
+}
+
+extension DetailArtistInfoView {
+    private func setupExhibitionView() -> some View {
+        Home.build(data: .init(work: [
+            Work(id: 0,
+                 title: "0412-2",
+                 subTitle: "20x27.5cm\n Embroidery on Paper\n2021",
+                 image: "1-1. 0412-1, Embroidery on tracing paper, 200 x 275mm, 2023",
+                 workColor: .white, seriesCount: 4,
+                worksImage: [
+                    IdImage(image: UIImage(named: "1-1. 0412-1, Embroidery on tracing paper, 200 x 275mm, 2023")!),
+                       IdImage(image: UIImage(named: "1-2. 0412-1, Embroidery on tracing paper, 200 x 275mm, 2023")!),
+                       IdImage(image: UIImage(named: "1-3. 0412-1, Embroidery on tracing paper, 200 x 275mm, 2023")!),
+                    IdImage(image: UIImage(named: "1-4. 0412-1, Embroidery on tracing paper, 200 x 275mm, 2023")!)
+                ]),
+            Work(id: 1,
+                 title: "Untitled_1228",
+                 subTitle: "110 x 140cm\nTapestry, poly metal yarn, wool, wire\n2023",
+                 image: "2-1. Untitled_1228, Tapestry, Poly metal yarn, wool, wore, 1100 x 1400mm, 2023",
+                 workColor: .white, seriesCount: 3,
+                worksImage: [
+                    IdImage(image: UIImage(named: "2-1. Untitled_1228, Tapestry, Poly metal yarn, wool, wore, 1100 x 1400mm, 2023")!),
+                    IdImage(image: UIImage(named: "2-2. Untitled_1228, Tapestry, Poly metal yarn, wool, wore, 1100 x 1400mm, 2023")!),
+                    IdImage(image: UIImage(named: "2-3. Untitled_1228, Tapestry, Poly metal yarn, wool, wore, 1100 x 1400mm, 2023")!)
+                ]),
+            Work(id: 2,
+                 title: "0810 #1",
+                 subTitle: "130 x 110cm\nWool, Tapestry\n2022",
+                 image: "3-1. 0810-1, Tapestry, wool, 1300 x 110mm, 2022",
+                 workColor: .white, seriesCount: 2, worksImage: [
+                    IdImage(image: UIImage(named: "3-1. 0810-1, Tapestry, wool, 1300 x 110mm, 2022")!),
+                           IdImage(image:  UIImage(named: "3-5. 0810-1, Tapestry, wool, 1300 x 110mm, 2022")!)
+                 ]),
+            Work(id: 3,
+                 title: "0810 #2",
+                 subTitle: "120 x 110cm\nWool, Tapestry\n2022",
+                 image: "3-2. 0810-2, Tapestry, wool, 1200 x 1100mm,  2022",
+                 workColor: .white, seriesCount: 1, worksImage: [
+                    IdImage(image: UIImage(named: "3-2. 0810-2, Tapestry, wool, 1200 x 1100mm,  2022")!)
+                 ]),
+            Work(id: 4,
+                 title: "0810 #3",
+                 subTitle: "110 x 100cm\nWool, Tapestry\n2022",
+                 image: "3-3. 0810-3, Tapestry, wool, 1100 x 1000mm, 2022",
+                 workColor: .white, seriesCount: 2, worksImage: [
+                    IdImage(image: UIImage(named: "3-3. 0810-3, Tapestry, wool, 1100 x 1000mm, 2022")!),
+                    IdImage(image: UIImage(named: "3-4. 0810-3, Tapestry, wool, 1100 x 1000mm, 2022")!)
+                 ]),
+            Work(id: 5,
+                 title: "전하지 못한 편지",
+                 subTitle: "110 x 150cm\nWool, Tapestry\n2018",
+                 image: "4-1. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018",
+                 workColor: .yellow, seriesCount: 4, worksImage: [
+                    IdImage(image: UIImage(named: "4-1. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018")!),
+                    IdImage(image: UIImage(named: "4-2. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018")!),
+                    IdImage(image: UIImage(named: "4-3. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018")!),
+                    IdImage(image: UIImage(named: "4-4. 전하지 못한 편지, Tapestry, wool, 1500 x 1100mm, 2018")!)
+                 ]),
+            Work(id: 6,
+                 title: "Brand ‘Aesop’ Gloam eau de parfum invitation collaboration",
+                 subTitle: "Embroidery on paper, cotton thread\n148 x 210mm\n2023",
+                 image: "이솝1",
+                 workColor: .brown, seriesCount: 3, worksImage: [
+                    IdImage(image: UIImage(named: "이솝1")!),
+                    IdImage(image: UIImage(named: "이솝2")!),
+                    IdImage(image: UIImage(named: "이솝3")!)
+                 ]),
+            Work(id: 7,
+                 title: "일기장",
+                 subTitle: "Luv letter,Embroidery on paper\n 300x200mm\n2023",
+                 image: "6-2. Luv letter,Embroidery on paper, 300x200mm, 2023",
+                 workColor: .brown, seriesCount: 2, worksImage: [
+                    IdImage(image: UIImage(named: "6-2. Luv letter,Embroidery on paper, 300x200mm, 2023")!),
+                    IdImage(image: UIImage(named: "6-1. Luv letter, blue spring, universe, Embroidery on paper, 300x200mm, 2023")!)
+                 ]),
+            Work(id: 8,
+                 title: "와인단청댕기\n(신세계L&B 공예상품개발 선정작)",
+                 subTitle: "Polyester, DTP\n45 x 330mm\n2023",
+                 image: "7-1. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023",
+                 workColor: .turquoise, seriesCount: 4, worksImage: [
+                    IdImage(image: UIImage(named: "7-1. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!),
+                    IdImage(image: UIImage(named: "7-2. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!),
+                    IdImage(image: UIImage(named: "7-3. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!),
+                    IdImage(image: UIImage(named: "7-4. 와인단청댕기(신세계L&B 공예상품개발 선정작), Polyester, DTP, 45 x 330mm, 2023")!)
+                 ])
+        ]), stateModel: UIStateModel())
     }
 }

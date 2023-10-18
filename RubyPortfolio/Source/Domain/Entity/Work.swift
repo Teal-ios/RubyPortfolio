@@ -7,16 +7,17 @@
 
 import Foundation
 
-struct Work: Decodable, Hashable, Identifiable {
+struct Work: Identifiable {
     var id: Int
     var title: String = ""
     var subTitle: String = ""
     var image: String = ""
     var workColor: WorkColor = .white
     var seriesCount: Int = 0
+    var worksImage: [IdImage]
 }
 
-enum WorkColor: Hashable, Decodable {
+enum WorkColor: Hashable {
     case black
     case white
     case brown
