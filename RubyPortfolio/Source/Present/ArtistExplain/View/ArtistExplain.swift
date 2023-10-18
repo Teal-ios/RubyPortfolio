@@ -16,18 +16,6 @@ struct ArtistExplain: View {
     }
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
-//    var backButton : some View {
-//        Button{
-//            self.presentationMode.wrappedValue.dismiss()
-//        } label: {
-//            HStack {
-//                Image(systemName: "chevron.left")
-//                    .aspectRatio(contentMode: .fit)
-//                    .tint(.white)
-//            }
-//        }
-//    }
     
     @ViewBuilder
     var body: some View {
@@ -45,7 +33,5 @@ struct ArtistExplain: View {
                 P183_CircularList()
             }
         }
-//        .navigationBarBackButtonHidden(true)
-//        .navigationBarItems(leading: backButton)
     }
 }

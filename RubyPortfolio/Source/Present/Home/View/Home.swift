@@ -10,7 +10,6 @@ import SwiftUI
 struct Home: View {
     
     @StateObject var viewModel: HomeViewModel
-//    @ObservedObject var viewModel: HomeViewModel
     @State var onToolBarTrigger: Bool = false
     @State var presentSheetAppear: Bool = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -20,7 +19,6 @@ struct Home: View {
     
     init(viewModel: HomeViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
-//        self.viewModel = viewModel
     }
     // MARK: - Body
     
@@ -31,10 +29,17 @@ struct Home: View {
     let cardWidth = UIScreen.main.bounds.width - (32 * 2) - (16 * 2)
     
     
-    
-
-    
     var body: some View {
+        switch viewModel.state {
+        case let .works(works):
+            ZStack {
+                Image(uiImage: UIImage(named: works[viewModel.activeCard].image)!)
+                canvas
+            }
+        }
+    }
+    
+    var canvas: some View {
         switch viewModel.state {
         case let .works(works):
             let totalSpacing = (CGFloat(works.count - 1)) * spacing
@@ -78,34 +83,6 @@ struct Home: View {
                                  .transition(AnyTransition.slide)
                                  .animation(.spring())
                                  .environmentObject(viewModel.stateModel)
-                            
-                            
-                            //                            Carousel(
-                            //                                numberOfItems: CGFloat(works.count),
-                            //                                spacing: 16,
-                            //                                widthOfHiddenCards: 32
-                            //                            ) {
-                            //                                ForEach(works, id: \.self.id) { item in
-                            //                                    Item(
-                            //                                        _id: Int(item.id),
-                            //                                        spacing: 16,
-                            //                                        widthOfHiddenCards: 32,
-                            //                                        cardHeight: 279
-                            //                                    ) {
-                            //                                        VStack {
-                            //                                            Image(item.image)
-                            //                                                .resizable()
-                            //                                        }
-                            //                                    }
-                            //                                    .foregroundColor(Color.white)
-                            //                                    .background(Color.gray)
-                            //                                    .cornerRadius(8)
-                            //                                    .shadow(color: Color.gray, radius: 4, x: 0, y: 4)
-                            //                                    .transition(AnyTransition.slide)
-                            //                                    .animation(.spring())
-                            //                                }
-                            //                            }
-                            //                            .environmentObject(viewModel.stateModel)
                         }
                     )
                 }
@@ -134,80 +111,6 @@ struct Home: View {
             })
             .transition(AnyTransition.slide)
             .animation(.spring())
-                
-                
-                //            SnapCarousel(works: works)
-                //                .environmentObject(viewModel.stateModel)
-                //                .font(.system(size: 22))
-                
-                //            contentView
-                
-                //        .navigationBarItems(leading: backButton)
-                
-                //        NavigationView {
-                //            switch onToolBarTrigger {
-                //            case false:
-                //                Button {
-                //                    onToolBarTrigger.toggle()
-                //                } label: {
-                //                    contentView
-                //                }
-                //
-                //            case true:
-                //                Button {
-                //                    onToolBarTrigger.toggle()
-                //                } label: {
-                //                    contentView
-                //                }
-                //                .toolbar {
-                //
-                //                    ToolbarItemGroup(placement: .bottomBar) {
-                //
-                //                        Button {
-                //                            presentSheetAppear = true
-                //
-                //                        } label: {
-                //                            ZStack {
-                //                                RoundedRectangle(cornerRadius: 4)
-                //                                    .frame(width: 80, height: 40)
-                //                                    .tint(Color.rubyBlack)
-                //                                    .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
-                //
-                //                                Text("Explain")
-                //                                    .foregroundColor(Color.rubyWhite)
-                //                                    .padding(8)
-                //
-                //                            }
-                //                        }
-                //
-                //                        Spacer()
-                //
-                //                        onTapToArtistExplain()
-                //
-                //                    }
-                //                }
-                //            }
-                //        }
-                //        .sheet(isPresented: $presentSheetAppear) {
-                //            ZStack {
-                //                LinearGradient(gradient: Gradient(colors: [Color.rubyWhite, colorSetting()]),
-                //                               startPoint: .top, endPoint: .bottom)
-                //                .edgesIgnoringSafeArea(.all)
-                //                .presentationDetents([.medium, .large])
-                //
-                //                titleText
-                //                    .bold()
-                //                    .foregroundColor(Color.black)
-                //                    .position(x: UIScreen.screenWidth / 2, y: 40)
-                //                    .multilineTextAlignment(.center)
-                //
-                //                subtitleText
-                //                    .bold()
-                //                    .foregroundColor(Color.white)
-                //                    .multilineTextAlignment(.center)
-                //
-                //            }
-                //        }
             }
         }
     }
@@ -311,11 +214,11 @@ extension Home {
                 RoundedRectangle(cornerRadius: 4)
                     .tint(Color.rubyBlack)
                     .shadow(color: Color.darkGray, radius: 4, x: 2, y: 2)
-
+                
                 Image(uiImage: UIImage(named: "sign")!)
                     .resizable()
                     .frame(width: 80, height: 40)
-
+                
             }
         }
     }

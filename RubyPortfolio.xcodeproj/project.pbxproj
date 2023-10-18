@@ -42,6 +42,7 @@
 		2FEE2AD62AD0EC590050B9FD /* ArtistExplain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE2AD52AD0EC590050B9FD /* ArtistExplain.swift */; };
 		2FEE2AD82AD117930050B9FD /* CircularList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE2AD72AD117930050B9FD /* CircularList.swift */; };
 		2FEE2ADD2AD12F9A0050B9FD /* DetailArtistInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE2ADC2AD12F9A0050B9FD /* DetailArtistInfoView.swift */; };
+		2FF658562AD965AE00880592 /* Image + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF658552AD965AE00880592 /* Image + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		2FEE2AD52AD0EC590050B9FD /* ArtistExplain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistExplain.swift; sourceTree = "<group>"; };
 		2FEE2AD72AD117930050B9FD /* CircularList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularList.swift; sourceTree = "<group>"; };
 		2FEE2ADC2AD12F9A0050B9FD /* DetailArtistInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtistInfoView.swift; sourceTree = "<group>"; };
+		2FF658552AD965AE00880592 /* Image + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			children = (
 				2FB435092AC3E41400EBF3DA /* Color + Extension.swift */,
 				2FCC0A372ACFCBA300206832 /* UIScreen + Extension.swift */,
+				2FF658552AD965AE00880592 /* Image + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				2FEE2AD82AD117930050B9FD /* CircularList.swift in Sources */,
 				2FEE2AD42AD0EC4C0050B9FD /* ArtistExplainViewModel.swift in Sources */,
 				2F5A2F122AD6C3EA0086DEA8 /* IdImage.swift in Sources */,
+				2FF658562AD965AE00880592 /* Image + Extension.swift in Sources */,
 				2FDD41F72AC3C85300600AF7 /* Home.swift in Sources */,
 				2FCC0A3A2ACFE91A00206832 /* DarkGrayRoundButton.swift in Sources */,
 				2FDD41FB2AC3C99000600AF7 /* HomeViewModel.swift in Sources */,
@@ -559,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -613,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -647,6 +651,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cody.RubyPortfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,6 +684,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cody.RubyPortfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
