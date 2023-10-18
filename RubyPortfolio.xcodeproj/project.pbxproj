@@ -31,6 +31,9 @@
 		2FD141EB2ACECB110024CD72 /* WorkDetail+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141EA2ACECB110024CD72 /* WorkDetail+Build.swift */; };
 		2FD141ED2ACEE2670024CD72 /* Home+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141EC2ACEE2670024CD72 /* Home+Build.swift */; };
 		2FD141F02ACEE2DC0024CD72 /* HomeExternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD141EF2ACEE2DC0024CD72 /* HomeExternal.swift */; };
+		2FD8F1DC2ADFB9F300E3D0EF /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1DB2ADFB9F300E3D0EF /* ContactView.swift */; };
+		2FD8F1DF2ADFC84B00E3D0EF /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1DE2ADFC84B00E3D0EF /* MailView.swift */; };
+		2FD8F1E12ADFD3E200E3D0EF /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1E02ADFD3E200E3D0EF /* ComposeMailData.swift */; };
 		2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */; };
 		2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E82AC3C77D00600AF7 /* ContentView.swift */; };
 		2FDD41EB2AC3C77E00600AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDD41EA2AC3C77E00600AF7 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 		2FD141EA2ACECB110024CD72 /* WorkDetail+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkDetail+Build.swift"; sourceTree = "<group>"; };
 		2FD141EC2ACEE2670024CD72 /* Home+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+Build.swift"; sourceTree = "<group>"; };
 		2FD141EF2ACEE2DC0024CD72 /* HomeExternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExternal.swift; sourceTree = "<group>"; };
+		2FD8F1DB2ADFB9F300E3D0EF /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		2FD8F1DE2ADFC84B00E3D0EF /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		2FD8F1E02ADFD3E200E3D0EF /* ComposeMailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMailData.swift; sourceTree = "<group>"; };
 		2FDD41E32AC3C77D00600AF7 /* RubyPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPortfolioApp.swift; sourceTree = "<group>"; };
 		2FDD41E82AC3C77D00600AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 				2FB435012AC3E1B000EBF3DA /* Work.swift */,
 				2F5A2EFD2AD52C6D0086DEA8 /* WorksSeries.swift */,
 				2F5A2F112AD6C3EA0086DEA8 /* IdImage.swift */,
+				2FD8F1E02ADFD3E200E3D0EF /* ComposeMailData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 		2FCC0A3B2ACFEFB000206832 /* ArtistExplain */ = {
 			isa = PBXGroup;
 			children = (
+				2FD8F1D92ADFB9E000E3D0EF /* Contact */,
 				2F5A2F052AD6462D0086DEA8 /* MakingFilm */,
 				2F5A2F012AD63B140086DEA8 /* Diary */,
 				2FEE2AD92AD12F690050B9FD /* DetailArtistInfo */,
@@ -341,6 +349,31 @@
 				2FD141EF2ACEE2DC0024CD72 /* HomeExternal.swift */,
 			);
 			path = External;
+			sourceTree = "<group>";
+		};
+		2FD8F1D92ADFB9E000E3D0EF /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				2FD8F1DD2ADFC84300E3D0EF /* Mail */,
+				2FD8F1DA2ADFB9E700E3D0EF /* View */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		2FD8F1DA2ADFB9E700E3D0EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FD8F1DB2ADFB9F300E3D0EF /* ContactView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FD8F1DD2ADFC84300E3D0EF /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				2FD8F1DE2ADFC84B00E3D0EF /* MailView.swift */,
+			);
+			path = Mail;
 			sourceTree = "<group>";
 		};
 		2FDD41DA2AC3C77D00600AF7 = {
@@ -493,6 +526,8 @@
 				2F5A2F082AD6463E0086DEA8 /* MakingFilmView.swift in Sources */,
 				2FDD41F92AC3C89100600AF7 /* SnapCarousel.swift in Sources */,
 				2FEE2AD62AD0EC590050B9FD /* ArtistExplain.swift in Sources */,
+				2FD8F1E12ADFD3E200E3D0EF /* ComposeMailData.swift in Sources */,
+				2FD8F1DF2ADFC84B00E3D0EF /* MailView.swift in Sources */,
 				2FB435022AC3E1B000EBF3DA /* Work.swift in Sources */,
 				2FD141CD2ACE4A200024CD72 /* RouterAlertModifier.swift in Sources */,
 				2F5A2F0E2AD65E470086DEA8 /* InteractiveView.swift in Sources */,
@@ -505,6 +540,7 @@
 				2FDD41FB2AC3C99000600AF7 /* HomeViewModel.swift in Sources */,
 				2FD141EB2ACECB110024CD72 /* WorkDetail+Build.swift in Sources */,
 				2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */,
+				2FD8F1DC2ADFB9F300E3D0EF /* ContactView.swift in Sources */,
 				2FCC0A382ACFCBA300206832 /* UIScreen + Extension.swift in Sources */,
 				2F5A2F102AD67A440086DEA8 /* StoryListView.swift in Sources */,
 			);
@@ -638,17 +674,18 @@
 				DEVELOPMENT_TEAM = LL4R66V6Y3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Weave Me!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cody.RubyPortfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -656,7 +693,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -671,17 +708,18 @@
 				DEVELOPMENT_TEAM = LL4R66V6Y3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Weave Me!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cody.RubyPortfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -689,7 +727,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
