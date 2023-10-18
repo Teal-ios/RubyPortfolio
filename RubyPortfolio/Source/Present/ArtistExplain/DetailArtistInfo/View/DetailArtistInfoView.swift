@@ -121,6 +121,8 @@ Education/Workshop
                 setupArtistRecordView()
             case 4:
                 setupMakingFilmView()
+            case 5:
+                setupContactView()
             default:
                 setupArtistRecordView()
             }
@@ -207,6 +209,12 @@ extension DetailArtistInfoView {
 extension DetailArtistInfoView {
     private func setupScreenTranstionView() -> some View {
         P162_ScreenTransition()
+    }
+}
+
+extension DetailArtistInfoView {
+    private func setupContactView() -> some View {
+        ContactView()
     }
 }
 
