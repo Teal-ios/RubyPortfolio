@@ -13,8 +13,10 @@ struct ContactView: View {
     @State private var mailData = ComposeMailData(subject: "제목을 입력하세요.",
                                                   recipients: ["gusghk1118@naver.com"],
                                                   message: "작가에게 보낼 메세지를 입력하세요.", attachments: nil
-                                                 )
-   @State private var showMailView = false
+    )
+    @State private var showMailView = false
+    @State  var shouldShowToast: Bool = false
+    
     
     var body: some View {
         ZStack {
@@ -58,12 +60,20 @@ struct ContactView: View {
                     .disabled(!MailView.canSendMail)
                     .sheet(isPresented: $showMailView) {
                         MailView(data: $mailData) { result in
-                            print("result")
+                            print("메일보냄")
                         }
                     }
                 }
                 .frame(height: 80)
                 .position(x: UIScreen.screenWidth / 2)
+                
+                Spacer()
+                
+                Text(" 성공적으로 메일을 보냈습니다. ")
+                    .background(Color.darkGray)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                
             }
         }
     }
