@@ -33,5 +33,6 @@ struct ArtistExplain: View {
                 P183_CircularList()
             }
         }
+
     }
 }

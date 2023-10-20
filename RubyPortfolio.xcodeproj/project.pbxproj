@@ -34,6 +34,7 @@
 		2FD8F1DC2ADFB9F300E3D0EF /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1DB2ADFB9F300E3D0EF /* ContactView.swift */; };
 		2FD8F1DF2ADFC84B00E3D0EF /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1DE2ADFC84B00E3D0EF /* MailView.swift */; };
 		2FD8F1E12ADFD3E200E3D0EF /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1E02ADFD3E200E3D0EF /* ComposeMailData.swift */; };
+		2FD8F1E32AE21BBA00E3D0EF /* Navigation + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8F1E22AE21BBA00E3D0EF /* Navigation + Extension.swift */; };
 		2FDD41E72AC3C77D00600AF7 /* RubyPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */; };
 		2FDD41E92AC3C77D00600AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD41E82AC3C77D00600AF7 /* ContentView.swift */; };
 		2FDD41EB2AC3C77E00600AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDD41EA2AC3C77E00600AF7 /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		2FD8F1DB2ADFB9F300E3D0EF /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		2FD8F1DE2ADFC84B00E3D0EF /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		2FD8F1E02ADFD3E200E3D0EF /* ComposeMailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMailData.swift; sourceTree = "<group>"; };
+		2FD8F1E22AE21BBA00E3D0EF /* Navigation + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation + Extension.swift"; sourceTree = "<group>"; };
 		2FDD41E32AC3C77D00600AF7 /* RubyPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDD41E62AC3C77D00600AF7 /* RubyPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPortfolioApp.swift; sourceTree = "<group>"; };
 		2FDD41E82AC3C77D00600AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				2FB435092AC3E41400EBF3DA /* Color + Extension.swift */,
 				2FCC0A372ACFCBA300206832 /* UIScreen + Extension.swift */,
 				2FF658552AD965AE00880592 /* Image + Extension.swift */,
+				2FD8F1E22AE21BBA00E3D0EF /* Navigation + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				2F5A2F0E2AD65E470086DEA8 /* InteractiveView.swift in Sources */,
 				2FEE2AD82AD117930050B9FD /* CircularList.swift in Sources */,
 				2FEE2AD42AD0EC4C0050B9FD /* ArtistExplainViewModel.swift in Sources */,
+				2FD8F1E32AE21BBA00E3D0EF /* Navigation + Extension.swift in Sources */,
 				2F5A2F122AD6C3EA0086DEA8 /* IdImage.swift in Sources */,
 				2FF658562AD965AE00880592 /* Image + Extension.swift in Sources */,
 				2FDD41F72AC3C85300600AF7 /* Home.swift in Sources */,
@@ -685,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cody.RubyPortfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -719,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cody.RubyPortfolio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -61,6 +61,10 @@ struct ContactView: View {
                     .sheet(isPresented: $showMailView) {
                         MailView(data: $mailData) { result in
                             print("메일보냄")
+                            shouldShowToast = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                shouldShowToast = false
+                            }
                         }
                     }
                 }
@@ -69,11 +73,25 @@ struct ContactView: View {
                 
                 Spacer()
                 
-                Text(" 성공적으로 메일을 보냈습니다. ")
-                    .background(Color.darkGray)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                if shouldShowToast {
+                    Text(" 성공적으로 메일을 보냈습니다. ")
+                        .background(Color(red: 1/255, green: 1/255, blue: 1/255, opacity: 0.6))
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                    
+                } else {
+                    Text(" 성공적으로 메일을 보냈습니다. ")
+                        .background(Color(red: 1/255, green: 1/255, blue: 1/255, opacity: 0.6))
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .hidden()
+                }
+                    
                 
+                Spacer()
+                Spacer()
+                Spacer()
+
             }
         }
     }
