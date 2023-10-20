@@ -88,7 +88,7 @@ struct Home: View {
                 }
             }
             .offset(x: CGFloat(calcOffset), y: 0)
-            .gesture(DragGesture().updating($isDetectingLongPress) { currentState, gestureState, transaction in
+            .highPriorityGesture(DragGesture().updating($isDetectingLongPress) { currentState, gestureState, transaction in
                 DispatchQueue.main.async {
                     viewModel.stateModel.screenDrag = Float(currentState.translation.width)
                 }
